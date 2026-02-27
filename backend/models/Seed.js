@@ -8,7 +8,7 @@ async function seedData() {
 
   console.log("MongoDB connected for seeding");
 
-  // clear existing notes (optional)
+
   await Note.deleteMany();
 
   const notes = [
