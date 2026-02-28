@@ -96,6 +96,7 @@ li {
 }
 
 li button {
+    margin-left:5px ;
     background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
     color: white;
     border: none;

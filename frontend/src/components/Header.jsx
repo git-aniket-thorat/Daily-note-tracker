@@ -6,7 +6,7 @@ export default function Header() {
       <h2>Daily Notes</h2>
 
       <nav>
-        <Link to="/">View Notes</Link> | <Link to="/add">Add Note</Link>
+        <Link to="/">View Notes</Link> |<Link to="/search">Search Notes</Link> | <Link to="/add">Add Note</Link>
       </nav>
     </header>
   );
