@@ -22,6 +22,11 @@ export async function getNotesByDate(date) {
   return res.json();
 }
 
+export async function getNotesCountByDate(date) {
+  const res=await fetch(`${BASE_URL}/${date}/count`,)
+  return res.json();
+}
+
 export async function toggleNote(id) {
   const res = await fetch(`${BASE_URL}/${id}/toggle`, {
     method: "PUT",
@@ -29,9 +34,29 @@ export async function toggleNote(id) {
   return res.json();
 }
 
+
+export async function updateNote(id, text) {
+  const res = await fetch(`${BASE_URL}/${id}/update`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ text }),
+  });
+
+  return res.json();
+}
+
 export async function deleteNote(id) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "DELETE",
   });
+  return res.json();
+}
+
+export async function searchNotes(keyword) {
+  const res = await fetch(
+    `${BASE_URL}/search?q=${encodeURIComponent(keyword)}`
+  );
   return res.json();
 }

@@ -1,5 +1,13 @@
 import express from "express";
-import { addNote, getDates, getNotesByDate, toggleCompleted, deleteNote } from "../controllers/NotesController.js";
+import { 
+    addNote, 
+    getDates, 
+    getNotesByDate, 
+    toggleCompleted, 
+    updateNote, 
+    deleteNote, 
+    searchNotesByKeyword
+ } from "../controllers/NotesController.js";
 
 const router = express.Router()
 
@@ -11,6 +19,10 @@ router.get("/date/:date", getNotesByDate)
 
 router.put("/:id/toggle",toggleCompleted)
 
+router.put("/:id/update",updateNote)
+
 router.delete("/:id", deleteNote)
+
+router.get("/search",searchNotesByKeyword)
 
 export default router

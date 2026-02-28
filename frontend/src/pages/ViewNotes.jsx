@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDates, getNotesByDate, toggleNote, deleteNote } from "../api";
+import { getDates, getNotesByDate ,toggleNote,updateNote, deleteNote } from "../api";
 import DateList from "../components/DateList";
 import NotesList from "../components/NotesList";
 
@@ -25,6 +25,12 @@ export default function ViewNotes() {
     );
   }
 
+  async function update(id,text){
+    const updated = await updateNote(id,text)
+    setNotes(prev=> 
+      prev.map(n=>(n._id===id ? updated : n))
+    )
+  }
   async function remove(id) {
     await deleteNote(id);
     setNotes(prev => prev.filter(n => n._id !== id));
@@ -42,6 +48,7 @@ export default function ViewNotes() {
           <NotesList
             notes={notes}
             onToggle={toggle}
+            onUpdate={update}
             onDelete={remove}
           />
         </>
